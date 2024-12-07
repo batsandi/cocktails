@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cocktail Grid</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f9f9f9;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2em;
+  color: #444;
+}
+
+#search-box {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 20px auto;
+  font-size: 1em;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.cocktail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px;
+}
+
+.cocktail-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+}
+
+.cocktail-info, .cocktail-visual {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.cocktail-info {
+  flex: 1;
+}
+
+.cocktail-info h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+}
+
+.cocktail-info p {
+  margin: 0.5em 0;
+  line-height: 1.4em;
+}
+
+.cocktail-info ul {
+  margin: 0.5em 0;
+  padding-left: 20px;
+}
+
+.cocktail-info li {
+  margin-bottom: 0.3em;
+}
+
+.cocktail-visual {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Glass Styles */
+
+.glass {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.glass .drink {
+  position: absolute;
+  width: 100%;
+}
+.glass .cream {
+  position: absolute;
+  top: 0;
+  background: #fff;
+  width: 100%;
+  height: 20%;
+}
+
+/* Margarita glass (has bowl, stem, base) */
+.margarita-glass .glass {
+  width: 60px;
+  align-items: center;
+  flex-direction: column;
+}
+.margarita-glass .bowl {
+  width: 100%;
+  height: 40px;
+  background: #ccc;
+  border-radius: 0 0 50% 50%;
+  position: relative;
+}
+.margarita-glass .bowl:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: #eee;
+  border-radius: 0 0 50% 50%;
+}
+.margarita-glass .stem {
+  width: 5px;
+  height: 30px;
+  background: #ccc;
+  margin-top: 2px;
+}
+.margarita-glass .base {
+  width: 20px;
+  height: 5px;
+  background: #ccc;
+  border-radius: 2px;
+  margin-top: 2px;
+}
+.margarita-glass .drink {
+  top: 0;
+  height: 80%;
+  border-radius: 0 0 50% 50%;
+}
+
+/* Coupe glass (no base needed) */
+.coupe-glass .glass {
+  width: 40px;
+  height: 90px;
+  align-items: center;
+  flex-direction: column;
+}
+.coupe-glass .bowl {
+  width: 100%;
+  height: 40px;
+  background: #ccc;
+  border-radius: 0 0 50% 50%;
+  position: relative;
+}
+.coupe-glass .stem {
+  width: 5px;
+  height: 40px;
+  background: #ccc;
+  margin-top: 2px;
+}
+.coupe-glass .drink {
+  top: 0;
+  height: 80%;
+  border-radius: 0 0 50% 50%;
+}
+
+/* Old-Fashioned glass */
+.old-fashioned-glass .glass {
+  width: 40px;
+  height: 60px;
+  background: #ccc;
+  border-radius: 4px;
+  position: relative;
+}
+.old-fashioned-glass .drink {
+  bottom: 0;
+  height: 70%;
+  border-radius: 0 0 4px 4px;
+}
+
+/* Martini glass (with base) */
+.martini-glass .glass {
+  width: 40px;
+  align-items: center;
+  flex-direction: column;
+}
+.martini-glass .bowl {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #ccc;
+  position: relative;
+  margin-bottom: 5px;
+}
+.martini-glass .stem {
+  width: 2px;
+  height: 40px;
+  background: #ccc;
+}
+.martini-glass .base {
+  width: 20px;
+  height: 5px;
+  background: #ccc;
+  border-radius: 2px;
+  margin-top: 2px;
+}
+.martini-glass .drink {
+  top: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid inherit;
+}
+
+/* Tiki glass */
+.tiki-glass .glass {
+  width: 40px;
+  height: 90px;
+  background: #ccc;
+  border-radius: 4px;
+  position: relative;
+}
+.tiki-glass .drink {
+  bottom: 0;
+  height: 80%;
+  border-radius: 0 0 4px 4px;
+}
+
+/* Highball glass */
+.highball-glass .glass {
+  width: 30px;
+  height: 100px;
+  background: #ccc;
+  border-radius: 4px;
+  position: relative;
+}
+.highball-glass .drink {
+  bottom: 0;
+  height: 80%;
+  border-radius: 0 0 4px 4px;
+}
+
+/* Hurricane glass */
+.hurricane-glass .glass {
+  width: 40px;
+  height: 100px;
+  background: #ccc;
+  border-radius: 15px 15px 0 0;
+  position: relative;
+}
+.hurricane-glass .drink {
+  bottom: 0;
+  height: 80%;
+  border-radius: 0 0 15px 15px;
+}
+
+/* Wine glass (with base) */
+.wine-glass .glass {
+  width: 40px;
+  align-items: center;
+  flex-direction: column;
+}
+.wine-glass .bowl {
+  width: 30px;
+  height: 40px;
+  background: #ccc;
+  border-radius: 50% 50% 0 0;
+  position: relative;
+  margin-bottom: 5px;
+}
+.wine-glass .stem {
+  width: 2px;
+  height: 30px;
+  background: #ccc;
+}
+.wine-glass .base {
+  width: 20px;
+  height: 5px;
+  background: #ccc;
+  border-radius: 2px;
+  margin-top: 2px;
+}
+.wine-glass .drink {
+  bottom: 0;
+  height: 80%;
+  border-radius: 50% 50% 0 0;
+}
+
+/* Julep cup */
+.julep-cup .glass {
+  width: 40px;
+  height: 60px;
+  background: #ccc;
+  border-radius: 4px;
+  position: relative;
+}
+.julep-cup .drink {
+  bottom: 0;
+  height: 70%;
+  border-radius: 0 0 4px 4px;
+}
+
+/* Irish coffee glass */
+.irish-coffee-glass .glass {
+  width: 40px;
+  height: 90px;
+  position: relative;
+}
+.irish-coffee-glass .glass:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 5px;
+  height: 15px;
+  background: #ccc;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.irish-coffee-glass .drink {
+  width: 80%;
+  left: 10%;
+  bottom: 20%;
+  height: 60%;
+  background: #3e2723;
+  border-radius: 5px 5px 0 0;
+  position: absolute;
+}
+.irish-coffee-glass .cream {
+  width: 80%;
+  left: 10%;
+  height: 20%;
+  top: 0;
+  border-radius: 5px 5px 0 0;
+}
+
+/* Champagne flute (with base) */
+.champagne-flute .glass {
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.champagne-flute .bowl {
+  width: 20px;
+  height: 50px;
+  background: #ccc;
+  border-radius: 10px 10px 0 0;
+  position: relative;
+}
+.champagne-flute .stem {
+  width: 2px;
+  height: 30px;
+  background: #ccc;
+  margin-top: 2px;
+}
+.champagne-flute .base {
+  width: 20px;
+  height: 5px;
+  background: #ccc;
+  border-radius: 2px;
+  margin-top: 2px;
+}
+.champagne-flute .drink {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60%;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 800px) {
+  .cocktail-grid {
+    grid-template-columns: 1fr; 
+  }
+  .cocktail-visual {
+    width: 100px;
+  }
+}
+</style>
+</head>
+<body>
+
+<input type="text" id="search-box" placeholder="Search cocktails..." />
+<h1>Cocktail Menu</h1>
+
+<div class="cocktail-grid">
+
+  <!-- 1: Margarita (Margarita glass + base) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Margarita</h2>
+      <p><strong>Glass:</strong> Margarita glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Tequila</li>
+        <li>25 ml Cointreau</li>
+        <li>25 ml Lime juice</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain into a salt-rimmed glass.</p>
+    </div>
+    <div class="cocktail-visual margarita-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#d9e76c;"></div>
+        </div>
+        <div class="stem"></div>
+        <div class="base"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2: Daiquiri (Coupe) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Daiquiri</h2>
+      <p><strong>Glass:</strong> Coupe glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Light rum</li>
+        <li>25 ml Lime juice</li>
+        <li>15 ml Simple syrup</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual coupe-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#e7de9d;"></div>
+        </div>
+        <div class="stem"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3: Negroni (Old-fashioned) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Negroni</h2>
+      <p><strong>Glass:</strong> Old-fashioned glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>25 ml Gin</li>
+        <li>25 ml Campari</li>
+        <li>25 ml Sweet vermouth</li>
+      </ul>
+      <p><strong>Method:</strong> Stir with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual old-fashioned-glass">
+      <div class="glass">
+        <div class="drink" style="background:#c0392b;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4: Manhattan (Coupe) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Manhattan</h2>
+      <p><strong>Glass:</strong> Coupe glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Irish whiskey</li>
+        <li>25 ml Sweet vermouth</li>
+        <li>2 dashes Angostura bitters</li>
+      </ul>
+      <p><strong>Method:</strong> Stir with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual coupe-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#8b5a2b;"></div>
+        </div>
+        <div class="stem"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5: Old Fashioned (Old-fashioned) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Old Fashioned</h2>
+      <p><strong>Glass:</strong> Old-fashioned glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Jack Daniels Tennessee whiskey</li>
+        <li>1 Sugar cube</li>
+        <li>2 dashes Angostura bitters</li>
+        <li>Orange peel</li>
+      </ul>
+      <p><strong>Method:</strong> Muddle sugar and bitters, add whiskey, stir with ice.</p>
+    </div>
+    <div class="cocktail-visual old-fashioned-glass">
+      <div class="glass">
+        <div class="drink" style="background:#a0522d;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6: Whiskey Sour (Old-fashioned) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Whiskey Sour</h2>
+      <p><strong>Glass:</strong> Old-fashioned glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Irish whiskey</li>
+        <li>25 ml Lemon juice</li>
+        <li>15 ml Simple syrup</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual old-fashioned-glass">
+      <div class="glass">
+        <div class="drink" style="background:#f2d88a;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7: Cosmopolitan (Coupe) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Cosmopolitan</h2>
+      <p><strong>Glass:</strong> Coupe glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Vodka</li>
+        <li>25 ml Cointreau</li>
+        <li>25 ml Cranberry juice</li>
+        <li>10 ml Lime juice</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual coupe-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#e75480;"></div>
+        </div>
+        <div class="stem"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8: Martini (Dry) (Martini + base) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Martini (Dry)</h2>
+      <p><strong>Glass:</strong> Martini glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Gin</li>
+        <li>10 ml Dry vermouth</li>
+        <li>Lemon twist or olive</li>
+      </ul>
+      <p><strong>Method:</strong> Stir with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual martini-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#e8e8e8;"></div>
+        </div>
+        <div class="stem"></div>
+        <div class="base"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9: Mai Tai (Tiki) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Mai Tai</h2>
+      <p><strong>Glass:</strong> Tiki or Old-fashioned glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>40 ml Dark rum</li>
+        <li>20 ml Light rum</li>
+        <li>15 ml Orgeat syrup</li>
+        <li>15 ml Cointreau</li>
+        <li>10 ml Lime juice</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual tiki-glass">
+      <div class="glass">
+        <div class="drink" style="background:#d2691e;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10: Mojito (Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Mojito</h2>
+      <p><strong>Glass:</strong> Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Light rum</li>
+        <li>10 Mint leaves</li>
+        <li>25 ml Lime juice</li>
+        <li>15 ml Simple syrup</li>
+        <li>Soda water</li>
+      </ul>
+      <p><strong>Method:</strong> Muddle mint and lime, add rum and syrup, build over ice, top with soda.</p>
+    </div>
+    <div class="cocktail-visual highball-glass">
+      <div class="glass">
+        <div class="drink" style="background:#7cc76f;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11: Tequila Sunrise (Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Tequila Sunrise</h2>
+      <p><strong>Glass:</strong> Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Tequila</li>
+        <li>100 ml Orange juice</li>
+        <li>10 ml Grenadine</li>
+      </ul>
+      <p><strong>Method:</strong> Build over ice, pour grenadine last to create a gradient.</p>
+    </div>
+    <div class="cocktail-visual highball-glass">
+      <div class="glass">
+        <div class="drink" style="background:linear-gradient(to top, #e60026 0%, #ffa500 100%);"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12: Tom Collins (Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Tom Collins</h2>
+      <p><strong>Glass:</strong> Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Gin</li>
+        <li>25 ml Lemon juice</li>
+        <li>15 ml Simple syrup</li>
+        <li>Soda water</li>
+      </ul>
+      <p><strong>Method:</strong> Shake gin, lemon, and syrup; strain over ice; top with soda.</p>
+    </div>
+    <div class="cocktail-visual highball-glass">
+      <div class="glass">
+        <div class="drink" style="background:#f5f5f5;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13: Sidecar (Coupe) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Sidecar</h2>
+      <p><strong>Glass:</strong> Coupe glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Brandy</li>
+        <li>25 ml Cointreau</li>
+        <li>25 ml Lemon juice</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual coupe-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#d2b48c;"></div>
+        </div>
+        <div class="stem"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14: Gin Fizz (Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Gin Fizz</h2>
+      <p><strong>Glass:</strong> Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Gin</li>
+        <li>25 ml Lemon juice</li>
+        <li>15 ml Simple syrup</li>
+        <li>Soda water</li>
+      </ul>
+      <p><strong>Method:</strong> Shake gin, lemon, and syrup; strain; top with soda.</p>
+    </div>
+    <div class="cocktail-visual highball-glass">
+      <div class="glass">
+        <div class="drink" style="background:#f5f5f5;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15: Sea Breeze (Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Sea Breeze</h2>
+      <p><strong>Glass:</strong> Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Vodka</li>
+        <li>50 ml Cranberry juice</li>
+        <li>50 ml Grapefruit juice</li>
+      </ul>
+      <p><strong>Method:</strong> Build over ice.</p>
+    </div>
+    <div class="cocktail-visual highball-glass">
+      <div class="glass">
+        <div class="drink" style="background:#dc143c;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 16: Dark 'n' Stormy (Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Dark 'n' Stormy</h2>
+      <p><strong>Glass:</strong> Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Dark rum</li>
+        <li>100 ml Ginger beer</li>
+        <li>10 ml Lime juice</li>
+      </ul>
+      <p><strong>Method:</strong> Build over ice.</p>
+    </div>
+    <div class="cocktail-visual highball-glass">
+      <div class="glass">
+        <div class="drink" style="background:#8b4513;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 17: Godfather (Old-fashioned) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Godfather</h2>
+      <p><strong>Glass:</strong> Old-fashioned glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Whiskey</li>
+        <li>25 ml Amaretto (or orgeat syrup)</li>
+      </ul>
+      <p><strong>Method:</strong> Stir with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual old-fashioned-glass">
+      <div class="glass">
+        <div class="drink" style="background:#cfa07f;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 18: Boulevardier (Old-fashioned) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Boulevardier</h2>
+      <p><strong>Glass:</strong> Old-fashioned glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>25 ml Whiskey</li>
+        <li>25 ml Campari</li>
+        <li>25 ml Sweet vermouth</li>
+      </ul>
+      <p><strong>Method:</strong> Stir with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual old-fashioned-glass">
+      <div class="glass">
+        <div class="drink" style="background:#b03060;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 19: Caprioska (Old-fashioned) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Caprioska</h2>
+      <p><strong>Glass:</strong> Old-fashioned glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Vodka</li>
+        <li>1 Lime (quartered)</li>
+        <li>2 teaspoons Sugar</li>
+      </ul>
+      <p><strong>Method:</strong> Muddle lime and sugar, add vodka, fill with crushed ice.</p>
+    </div>
+    <div class="cocktail-visual old-fashioned-glass">
+      <div class="glass">
+        <div class="drink" style="background:#c9eab3;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 20: Champs-Élysées (Coupe) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Champs-Élysées</h2>
+      <p><strong>Glass:</strong> Coupe glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Brandy</li>
+        <li>25 ml Lemon juice</li>
+        <li>15 ml Simple syrup</li>
+        <li>10 ml Green Chartreuse (optional)</li>
+        <li>1 dash Angostura bitters</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual coupe-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#9acd32;"></div>
+        </div>
+        <div class="stem"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 21: Rusty Nail (Old-fashioned) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Rusty Nail</h2>
+      <p><strong>Glass:</strong> Old-fashioned glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Whiskey</li>
+        <li>25 ml Drambuie (or honey)</li>
+      </ul>
+      <p><strong>Method:</strong> Stir with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual old-fashioned-glass">
+      <div class="glass">
+        <div class="drink" style="background:#b5651d;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 22: Pina Colada (Hurricane) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Pina Colada</h2>
+      <p><strong>Glass:</strong> Hurricane glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Light rum</li>
+        <li>50 ml Pineapple juice</li>
+        <li>25 ml Coconut cream</li>
+      </ul>
+      <p><strong>Method:</strong> Blend with ice until smooth.</p>
+    </div>
+    <div class="cocktail-visual hurricane-glass">
+      <div class="glass">
+        <div class="drink" style="background:#fffacd;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 23: Aperol Spritz (Wine glass + base) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Aperol Spritz</h2>
+      <p><strong>Glass:</strong> Wine glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Aperol</li>
+        <li>75 ml Prosecco</li>
+        <li>25 ml Soda water</li>
+      </ul>
+      <p><strong>Method:</strong> Build over ice, stir gently.</p>
+    </div>
+    <div class="cocktail-visual wine-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#ff7f50;"></div>
+        </div>
+        <div class="stem"></div>
+        <div class="base"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 24: Rum Punch (Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Rum Punch</h2>
+      <p><strong>Glass:</strong> Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>25 ml Dark rum</li>
+        <li>25 ml Light rum</li>
+        <li>50 ml Orange juice</li>
+        <li>50 ml Pineapple juice</li>
+        <li>10 ml Grenadine</li>
+      </ul>
+      <p><strong>Method:</strong> Build over ice.</p>
+    </div>
+    <div class="cocktail-visual highball-glass">
+      <div class="glass">
+        <div class="drink" style="background:#fa8072;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 25: Planter's Punch (Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Planter's Punch</h2>
+      <p><strong>Glass:</strong> Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Dark rum</li>
+        <li>25 ml Orange juice</li>
+        <li>25 ml Pineapple juice</li>
+        <li>10 ml Lime juice</li>
+        <li>10 ml Grenadine</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual highball-glass">
+      <div class="glass">
+        <div class="drink" style="background:#f08080;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 26: Jack & Coke (Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Jack & Coke</h2>
+      <p><strong>Glass:</strong> Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Jack Daniels Tennessee whiskey</li>
+        <li>100 ml Cola</li>
+      </ul>
+      <p><strong>Method:</strong> Build over ice.</p>
+    </div>
+    <div class="cocktail-visual highball-glass">
+      <div class="glass">
+        <div class="drink" style="background:#3b2f2f;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 27: French 75 (Champagne flute + base) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>French 75</h2>
+      <p><strong>Glass:</strong> Champagne flute</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>25 ml Gin</li>
+        <li>15 ml Lemon juice</li>
+        <li>10 ml Simple syrup</li>
+        <li>75 ml Champagne</li>
+      </ul>
+      <p><strong>Method:</strong> Shake gin, lemon, and syrup; strain; top with Champagne.</p>
+    </div>
+    <div class="cocktail-visual champagne-flute">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#f0e68c;"></div>
+        </div>
+        <div class="stem"></div>
+        <div class="base"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 28: Mint Julep (Julep cup) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Mint Julep</h2>
+      <p><strong>Glass:</strong> Julep cup or Old-fashioned glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Whiskey</li>
+        <li>10 Mint leaves</li>
+        <li>15 ml Simple syrup</li>
+      </ul>
+      <p><strong>Method:</strong> Muddle mint and syrup, add spirit, fill with crushed ice.</p>
+    </div>
+    <div class="cocktail-visual julep-cup">
+      <div class="glass">
+        <div class="drink" style="background:#a5a473;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 29: Sazerac (Old-fashioned) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Sazerac</h2>
+      <p><strong>Glass:</strong> Old-fashioned glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Whiskey or Brandy</li>
+        <li>1 Sugar cube</li>
+        <li>2 dashes Angostura bitters</li>
+        <li>Absinthe rinse</li>
+      </ul>
+      <p><strong>Method:</strong> Stir with ice, strain into absinthe-rinsed glass.</p>
+    </div>
+    <div class="cocktail-visual old-fashioned-glass">
+      <div class="glass">
+        <div class="drink" style="background:#dda15e;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 30: Singapore Sling (Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Singapore Sling</h2>
+      <p><strong>Glass:</strong> Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Gin</li>
+        <li>25 ml Lime juice</li>
+        <li>25 ml Cherry liqueur (or grenadine)</li>
+        <li>100 ml Soda water</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice, strain, top with soda.</p>
+    </div>
+    <div class="cocktail-visual highball-glass">
+      <div class="glass">
+        <div class="drink" style="background:#df405a;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 31: Bloody Mary (Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Bloody Mary</h2>
+      <p><strong>Glass:</strong> Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Vodka</li>
+        <li>100 ml Tomato juice</li>
+        <li>15 ml Lemon juice</li>
+        <li>2 dashes Worcestershire sauce</li>
+        <li>2 dashes Tabasco sauce</li>
+        <li>Pinch of salt and pepper</li>
+      </ul>
+      <p><strong>Method:</strong> Build over ice, stir gently.</p>
+    </div>
+    <div class="cocktail-visual highball-glass">
+      <div class="glass">
+        <div class="drink" style="background:#b22222;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 32: Clover Club (Coupe) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Clover Club</h2>
+      <p><strong>Glass:</strong> Coupe glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Gin</li>
+        <li>25 ml Lemon juice</li>
+        <li>15 ml Raspberry syrup</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual coupe-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#f4a0c0;"></div>
+        </div>
+        <div class="stem"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 33: Campari Soda (Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Campari Soda</h2>
+      <p><strong>Glass:</strong> Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Campari</li>
+        <li>100 ml Soda water</li>
+      </ul>
+      <p><strong>Method:</strong> Build over ice.</p>
+    </div>
+    <div class="cocktail-visual highball-glass">
+      <div class="glass">
+        <div class="drink" style="background:#d11a2d;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 34: Paloma (Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Paloma</h2>
+      <p><strong>Glass:</strong> Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Tequila</li>
+        <li>100 ml Grapefruit soda</li>
+        <li>10 ml Lime juice</li>
+      </ul>
+      <p><strong>Method:</strong> Build over ice.</p>
+    </div>
+    <div class="cocktail-visual highball-glass">
+      <div class="glass">
+        <div class="drink" style="background:#f8c0c0;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 35: Irish Coffee (Irish coffee glass) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Irish Coffee</h2>
+      <p><strong>Glass:</strong> Irish coffee glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Irish whiskey</li>
+        <li>100 ml Hot coffee</li>
+        <li>25 ml Whipped cream</li>
+      </ul>
+      <p><strong>Method:</strong> Build in glass, float cream on top.</p>
+    </div>
+    <div class="cocktail-visual irish-coffee-glass">
+      <div class="glass">
+        <div class="drink"></div>
+        <div class="cream"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 36: Vodka Martini (Martini + base) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Vodka Martini</h2>
+      <p><strong>Glass:</strong> Martini glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Vodka</li>
+        <li>10 ml Dry vermouth</li>
+        <li>Lemon twist or olive</li>
+      </ul>
+      <p><strong>Method:</strong> Stir with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual martini-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#eee;"></div>
+        </div>
+        <div class="stem"></div>
+        <div class="base"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 37: Vesper Martini (Martini + base) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Vesper Martini</h2>
+      <p><strong>Glass:</strong> Martini glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Vodka</li>
+        <li>25 ml Gin</li>
+        <li>10 ml Dry vermouth</li>
+      </ul>
+      <p><strong>Method:</strong> Stir with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual martini-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#f0f0f0;"></div>
+        </div>
+        <div class="stem"></div>
+        <div class="base"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 38: Rum Swizzle (Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Rum Swizzle</h2>
+      <p><strong>Glass:</strong> Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Dark rum</li>
+        <li>25 ml Orange juice</li>
+        <li>25 ml Pineapple juice</li>
+        <li>15 ml Grenadine</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual highball-glass">
+      <div class="glass">
+        <div class="drink" style="background:#ee8262;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 39: Gin Basil Smash (Old-fashioned) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Gin Basil Smash</h2>
+      <p><strong>Glass:</strong> Old-fashioned glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Gin</li>
+        <li>10 Basil leaves</li>
+        <li>25 ml Lemon juice</li>
+        <li>15 ml Simple syrup</li>
+      </ul>
+      <p><strong>Method:</strong> Muddle basil, shake with ice, strain.</p>
+    </div>
+    <div class="cocktail-visual old-fashioned-glass">
+      <div class="glass">
+        <div class="drink" style="background:#88b04b;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 40: Amaretto Sour (Old-fashioned) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Amaretto Sour</h2>
+      <p><strong>Glass:</strong> Old-fashioned glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Brandy</li>
+        <li>25 ml Lemon juice</li>
+        <li>15 ml Orgeat syrup</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual old-fashioned-glass">
+      <div class="glass">
+        <div class="drink" style="background:#deb887;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 41: Caipirinha (Old-fashioned) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Caipirinha</h2>
+      <p><strong>Glass:</strong> Old-fashioned glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Light rum</li>
+        <li>1 Lime (quartered)</li>
+        <li>2 teaspoons Sugar</li>
+      </ul>
+      <p><strong>Method:</strong> Muddle lime and sugar, add rum, fill with crushed ice.</p>
+    </div>
+    <div class="cocktail-visual old-fashioned-glass">
+      <div class="glass">
+        <div class="drink" style="background:#c9eab3;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 42: Cuba Libre (Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Cuba Libre</h2>
+      <p><strong>Glass:</strong> Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Light rum</li>
+        <li>100 ml Cola</li>
+        <li>10 ml Lime juice</li>
+      </ul>
+      <p><strong>Method:</strong> Build over ice.</p>
+    </div>
+    <div class="cocktail-visual highball-glass">
+      <div class="glass">
+        <div class="drink" style="background:#3b2f2f;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 43: Martinez (Coupe) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Martinez</h2>
+      <p><strong>Glass:</strong> Coupe glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Gin</li>
+        <li>25 ml Sweet vermouth</li>
+        <li>5 ml Maraschino liqueur</li>
+        <li>2 dashes Angostura bitters</li>
+      </ul>
+      <p><strong>Method:</strong> Stir with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual coupe-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#b57281;"></div>
+        </div>
+        <div class="stem"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 44: Ward Eight (Coupe) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Ward Eight</h2>
+      <p><strong>Glass:</strong> Coupe glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Whiskey</li>
+        <li>15 ml Lemon juice</li>
+        <li>15 ml Orange juice</li>
+        <li>15 ml Grenadine</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual coupe-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#f77b7b;"></div>
+        </div>
+        <div class="stem"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 45: Zombie (Tiki) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Zombie</h2>
+      <p><strong>Glass:</strong> Tiki glass or Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>25 ml Light rum</li>
+        <li>25 ml Dark rum</li>
+        <li>25 ml Pineapple juice</li>
+        <li>25 ml Orange juice</li>
+        <li>10 ml Lime juice</li>
+        <li>10 ml Grenadine</li>
+        <li>5 ml Absinthe (optional)</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual tiki-glass">
+      <div class="glass">
+        <div class="drink" style="background:#ffa07a;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 46: Hurricane (Hurricane) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Hurricane</h2>
+      <p><strong>Glass:</strong> Hurricane glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Dark rum</li>
+        <li>25 ml Passion fruit juice</li>
+        <li>25 ml Orange juice</li>
+        <li>15 ml Lime juice</li>
+        <li>15 ml Simple syrup</li>
+        <li>10 ml Grenadine</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual hurricane-glass">
+      <div class="glass">
+        <div class="drink" style="background:#ff637d;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 47: Corpse Reviver #2 (Coupe) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Corpse Reviver #2</h2>
+      <p><strong>Glass:</strong> Coupe glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>25 ml Gin</li>
+        <li>25 ml Cointreau</li>
+        <li>25 ml Lemon juice</li>
+        <li>25 ml Dry vermouth</li>
+        <li>Absinthe rinse</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice, strain into absinthe-rinsed glass.</p>
+    </div>
+    <div class="cocktail-visual coupe-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#e8f0b3;"></div>
+        </div>
+        <div class="stem"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 48: Tuxedo (Martini + base) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Tuxedo</h2>
+      <p><strong>Glass:</strong> Martini glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Gin</li>
+        <li>25 ml Dry vermouth</li>
+        <li>1 dash Orange bitters</li>
+        <li>5 ml Maraschino liqueur</li>
+        <li>Lemon twist</li>
+      </ul>
+      <p><strong>Method:</strong> Stir with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual martini-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#f8f8f8;"></div>
+        </div>
+        <div class="stem"></div>
+        <div class="base"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 49: Brandy Alexander (Coupe) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Brandy Alexander</h2>
+      <p><strong>Glass:</strong> Coupe glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Brandy</li>
+        <li>25 ml Crème de cacao</li>
+        <li>25 ml Cream</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual coupe-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#c8a772;"></div>
+        </div>
+        <div class="stem"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 50: Last Word (Coupe) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Last Word</h2>
+      <p><strong>Glass:</strong> Coupe glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>25 ml Gin</li>
+        <li>25 ml Green Chartreuse (optional)</li>
+        <li>25 ml Maraschino liqueur</li>
+        <li>25 ml Lime juice</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual coupe-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#9acd32;"></div>
+        </div>
+        <div class="stem"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 51: Harvey Wallbanger (Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Harvey Wallbanger</h2>
+      <p><strong>Glass:</strong> Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Vodka</li>
+        <li>100 ml Orange juice</li>
+        <li>15 ml Galliano</li>
+      </ul>
+      <p><strong>Method:</strong> Build over ice, float Galliano on top.</p>
+    </div>
+    <div class="cocktail-visual highball-glass">
+      <div class="glass">
+        <div class="drink" style="background:#ffa500;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 52: Bellini (Champagne flute + base) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Bellini</h2>
+      <p><strong>Glass:</strong> Champagne flute</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Peach puree</li>
+        <li>100 ml Prosecco</li>
+      </ul>
+      <p><strong>Method:</strong> Stir gently.</p>
+    </div>
+    <div class="cocktail-visual champagne-flute">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#ffe5b4;"></div>
+        </div>
+        <div class="stem"></div>
+        <div class="base"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 53: Grasshopper (Coupe) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Grasshopper</h2>
+      <p><strong>Glass:</strong> Coupe glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>25 ml Crème de menthe</li>
+        <li>25 ml Crème de cacao</li>
+        <li>25 ml Cream</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual coupe-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#98fb98;"></div>
+        </div>
+        <div class="stem"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 54: Frozen Daiquiri (Coupe) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Frozen Daiquiri</h2>
+      <p><strong>Glass:</strong> Coupe glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Light rum</li>
+        <li>25 ml Lime juice</li>
+        <li>15 ml Simple syrup</li>
+        <li>Crushed ice</li>
+      </ul>
+      <p><strong>Method:</strong> Blend until smooth and serve.</p>
+    </div>
+    <div class="cocktail-visual coupe-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#f0ead6;"></div>
+        </div>
+        <div class="stem"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 55: Tommy’s Margarita (Old-fashioned) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Tommy’s Margarita</h2>
+      <p><strong>Glass:</strong> Old-fashioned glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Tequila</li>
+        <li>25 ml Lime juice</li>
+        <li>15 ml Agave syrup</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual old-fashioned-glass">
+      <div class="glass">
+        <div class="drink" style="background:#d9e76c;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 56: Scorpion (Tiki or Highball) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Scorpion</h2>
+      <p><strong>Glass:</strong> Tiki or Highball glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>25 ml Brandy</li>
+        <li>25 ml Light rum</li>
+        <li>25 ml Orange juice</li>
+        <li>15 ml Lemon juice</li>
+        <li>15 ml Orgeat syrup</li>
+      </ul>
+      <p><strong>Method:</strong> Shake with ice and strain.</p>
+    </div>
+    <div class="cocktail-visual tiki-glass">
+      <div class="glass">
+        <div class="drink" style="background:#ffa500;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 57: Punch Royale (Wine glass + base) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Punch Royale</h2>
+      <p><strong>Glass:</strong> Wine glass or Punch bowl</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Prosecco</li>
+        <li>25 ml Orange juice</li>
+        <li>10 ml Grenadine</li>
+        <li>10 ml Cointreau</li>
+      </ul>
+      <p><strong>Method:</strong> Build over ice, stir gently.</p>
+    </div>
+    <div class="cocktail-visual wine-glass">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#f88379;"></div>
+        </div>
+        <div class="stem"></div>
+        <div class="base"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 58: White Russian (Old-fashioned) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>White Russian</h2>
+      <p><strong>Glass:</strong> Old-fashioned glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Vodka</li>
+        <li>25 ml Coffee liqueur</li>
+        <li>25 ml Cream</li>
+      </ul>
+      <p><strong>Method:</strong> Build over ice, float cream on top.</p>
+    </div>
+    <div class="cocktail-visual old-fashioned-glass">
+      <div class="glass">
+        <div class="drink" style="background:linear-gradient(to top, #3b2f2f 50%, #fff 50%);"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 59: Black Russian (Old-fashioned) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Black Russian</h2>
+      <p><strong>Glass:</strong> Old-fashioned glass</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Vodka</li>
+        <li>25 ml Coffee liqueur</li>
+      </ul>
+      <p><strong>Method:</strong> Build over ice.</p>
+    </div>
+    <div class="cocktail-visual old-fashioned-glass">
+      <div class="glass">
+        <div class="drink" style="background:#3b2f2f;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 60: Peach Bellini (Champagne flute + base) -->
+  <div class="cocktail-card">
+    <div class="cocktail-info">
+      <h2>Peach Bellini</h2>
+      <p><strong>Glass:</strong> Champagne flute</p>
+      <p><strong>Ingredients:</strong></p>
+      <ul>
+        <li>50 ml Peach puree</li>
+        <li>100 ml Champagne</li>
+      </ul>
+      <p><strong>Method:</strong> Stir gently.</p>
+    </div>
+    <div class="cocktail-visual champagne-flute">
+      <div class="glass">
+        <div class="bowl">
+          <div class="drink" style="background:#ffe5b4;"></div>
+        </div>
+        <div class="stem"></div>
+        <div class="base"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Search functionality
+const searchBox = document.getElementById('search-box');
+const cards = document.querySelectorAll('.cocktail-card');
+
+searchBox.addEventListener('keyup', function() {
+  const query = this.value.toLowerCase().trim();
+  const terms = query.split(/\s+/).filter(t => t.length > 0);
+
+  cards.forEach(card => {
+    const text = card.textContent.toLowerCase();
+    const matchesAll = terms.every(term => text.includes(term));
+    card.style.display = matchesAll ? 'flex' : 'none';
+  });
+});
+</script>
+
+</body>
+</html>
