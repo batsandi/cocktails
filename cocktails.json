@@ -1,0 +1,35 @@
+[
+    {
+        "name": "Margarita 420",
+        "glass": "Margarita glass",
+        "ingredients": [
+            "50 ml Tequila",
+            "25 ml Cointreau",
+            "25 ml Lime juice"
+        ],
+        "method": "Shake with ice and strain into a salt-rimmed glass.",
+        "color": "#d9e76c"
+    },
+    {
+        "name": "Margarita 2",
+        "glass": "Margarita glass",
+        "ingredients": [
+            "45 ml Tequila",
+            "25 ml Cointreau",
+            "25 ml Lime juice"
+        ],
+        "method": "Build with ice and strain into a salt-rimmed glass.",
+        "color": "#d9e76c"
+    },
+    {
+        "name": "Margarita 3",
+        "glass": "Margarita glass",
+        "ingredients": [
+            "50 ml Tequila",
+            "25 ml Triple sec",
+            "100 ml Lime juice"
+        ],
+        "method": "Stir with ice and strain into a salt-rimmed glass.",
+        "color": "#d9e76c"
+    }
+]
