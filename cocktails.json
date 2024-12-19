@@ -1,8 +1,9 @@
 [
     {
-        "name": "Margarita 02",
+        "name": "Tedi lapa gevreka",
         "glass": "Margarita glass",
-        "ingredients": [
+        "ingredients":
+        [
             "50 ml Tequila",
             "25 ml Cointreau",
             "25 ml Lime juice"
@@ -13,7 +14,8 @@
     {
         "name": "Margarita 2",
         "glass": "Margarita glass",
-        "ingredients": [
+        "ingredients":
+        [
             "45 ml Tequila",
             "25 ml Cointreau",
             "25 ml Lime juice"
@@ -24,7 +26,8 @@
     {
         "name": "Margarita 3",
         "glass": "Margarita glass",
-        "ingredients": [
+        "ingredients":
+        [
             "50 ml Tequila",
             "25 ml Triple sec",
             "100 ml Lime juice"
