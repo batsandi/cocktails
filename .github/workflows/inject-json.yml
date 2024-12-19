@@ -1,0 +1,39 @@
+name: Inject JSON and Commit Changes
+
+on:
+  push:
+    branches:
+      - main # Adjust to the branch(es) you want this workflow to trigger on
+
+jobs:
+  inject-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        persist-credentials: true # Ensure credentials are available for push
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22' # Specify your Node.js version
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run inject-json script
+      run: npm run inject-json
+
+    - name: Stage updated index.html
+      run: git add index.html
+
+    - name: Commit changes
+      run: |
+        git config --local user.name "github-actions[bot]"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git commit -m "Automated: Inject JSON and update index.html" || echo "No changes to commit"
+
+    - name: Push changes
+      run: git push
