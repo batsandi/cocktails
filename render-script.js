@@ -33,6 +33,7 @@ function renderCocktailCards(cocktails) {
             <div class="drink" style="background:${cocktail.color};"></div>
           </div>
           <div class="stem"></div>
+          <div class="base"></div>
         </div>
       </div>
     `;
