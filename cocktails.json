@@ -116,5 +116,73 @@
         ],
         "method": "Soak sugar cube in bitters, add cognac, top with champagne. Garnish with lemon twist.",
         "color": "#FFD700"
+    },
+    {
+        "name": "Negroni",
+        "glass": "Old-fashioned glass",
+        "ingredients":
+        [
+            "30 ml Gin",
+            "30 ml Campari",
+            "30 ml Sweet Vermouth",
+            "1 Orange Peel"
+        ],
+        "method": "Stir with ice for 30-40 sec, strain into old-fashioned glass. Garnish with orange twist.",
+        "color": "#FF4500"
+    },
+    {
+        "name": "Cosmopolitan",
+        "glass": "Coupe glass",
+        "ingredients":
+        [
+            "60 ml Vodka",
+            "30 ml Cointreau",
+            "30 ml Lime Juice",
+            "30 ml Cranberry Juice"
+        ],
+        "method": "Shake with ice, strain into chilled coupe glass. Garnish with lime twist.",
+        "color": "#FF69B4"
+    },
+    {
+        "name": "Whiskey Sour",
+        "glass": "Old-fashioned glass",
+        "ingredients":
+        [
+            "60 ml Bourbon",
+            "25 ml Lemon Juice",
+            "15 ml Simple Syrup",
+            "1 Dash bitters",
+            "1 (15ml) Egg White"
+        ],
+        "method": "Shake dry, then shake with ice, strain into ice-filled old-fashioned glass. Garnish with skewered orange peel and cherry.",
+        "color": "#FFD700"
+    },
+    {
+        "name": "Espresso Martini",
+        "glass": "Martini glass",
+        "ingredients":
+        [
+            "60 ml Vodka",
+            "15 ml Coffee Liqueur",
+            "30 ml Espresso",
+            "10 ml Simple Syrup"
+        ],
+        "method": "Shake with ice, strain into chilled martini glass. Garnish with coffee beans.",
+        "color": "#000000"
+    },
+    {
+        "name": "Mai Tai",
+        "glass": "Old-fashioned glass",
+        "ingredients":
+        [
+            "45 ml White Rum (or spice)",
+            "25 ml Lime Juice",
+            "15 ml Orange Curacao (or Cointread)",
+            "25 ml Orgeat Syrup",
+            "30 ml Dark Rum"
+
+        ],
+        "method": "Shake (except dark rum) with ice, strain into Old-fashioned glass. Fill with crushed ice and pour dark rum over ice.",
+        "color": "#FF6347"
     }
 ]
