@@ -1,12 +1,16 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Constantia, sans-serif;
     margin: 20px;
-    background: #f9f9f9;
+    /* background: #f9f9f9; */
     color: #333;
+    background: linear-gradient(to bottom, #ffffff, #e8d9b3); 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle text shadow */
+
   }
   
   h1 {
     text-align: center;
+    font-family: 'Broadway';
     margin-bottom: 40px;
     font-size: 2em;
     color: #444;
@@ -17,25 +21,37 @@ body {
     width: 100%;
     max-width: 400px;
     margin: 0 auto 20px auto;
+    font-family: 'Broadway', 'Arial';
     font-size: 1em;
     padding: 8px;
     box-sizing: border-box;
+    border: 1px solid #444; /* A dark outline */
+    border-radius: 6px; /* Slightly rounded for a softer vintage look */
+    background: linear-gradient(to bottom, #f7f4eb, #f2ebdb); /* Subtle gradient for a parchment-like feel */
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); /* Adds a shadow for depth */
   }
-  
+
   .cocktail-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 20px;
+    grid-template-columns: 1fr; /* Single column layout for small screens */
+  }
+  @media (min-width: 801px) {
+    .cocktail-grid {
+      grid-template-columns: 1fr 1fr; /* Two-column layout for larger screens */
+    }
   }
   
   .cocktail-card {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    background: linear-gradient(to bottom, #f6f0e1);
+    margin: 5px;
+    border: 1px solid #8e8b8b;
+    border-radius: 20px;
     display: flex;
     overflow: hidden;
     flex-direction: row;
   }
+
+  
   
   .cocktail-info, .cocktail-visual {
     padding: 20px;
@@ -75,19 +91,33 @@ body {
   /* Glass Line */
 
   .glass-line {
+    max-width: 80%;
     display: flex;
     margin: 5px 10% 5px 10%;
     justify-content: space-between; /* Space between items */
     align-items: flex-end; /* Align items to the center */
-    gap: 20px; /* Adjust spacing between glasses */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    /* gap: 20px; */
   }
   
   .glass-label {
     display: block;
     text-align: center;
-    font-size: 12px;
+    font-family: 'Broadway';
+    font-size: 9px;
     margin-top: 5px;
     color: #333;
+  }
+
+  .glass-line {
+    display: flex;
+    margin: 5px auto; /* Center the element horizontally */
+    justify-content: space-between; /* Space between items */
+    align-items: flex-end; /* Align items to the bottom */
+    gap: 20px; /* Adjust spacing between glasses */
+    max-width: 100%; /* Ensure it does not exceed the container width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    padding: 0 10%; /* Add padding to ensure content does not touch the edges */
   }
   
   .drink {

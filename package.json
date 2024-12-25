@@ -4,8 +4,5 @@
   },
   "scripts": {
     "inject-json": "node inject-json.js"
-  },
-  "devDependencies": {
-    "husky": "^9.1.7"
   }
 }

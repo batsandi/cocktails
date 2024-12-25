@@ -14,12 +14,14 @@ function renderCocktailCards(cocktails) {
     const cocktailInfo = `
       <div class="cocktail-info">
         <h2>${cocktail.name}</h2>
-        <p><strong>Glass:</strong> ${cocktail.glass}</p>
+        <p><em>${cocktail.glass}</em></p>
+        <br>
         <p><strong>Ingredients:</strong></p>
         <ul>
           ${cocktail.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
         </ul>
-        <p><strong>Method:</strong> ${cocktail.method}</p>
+        <br>
+        <p><em><strong>Method:</strong> ${cocktail.method}</em></p>
       </div>
     `;
 
