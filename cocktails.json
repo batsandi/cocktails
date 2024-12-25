@@ -184,5 +184,27 @@
         ],
         "method": "Shake (except dark rum) with ice, strain into Old-fashioned glass. Fill with crushed ice and pour dark rum over ice.",
         "color": "#FF6347"
+    },
+    {
+        "name": "Godfather",
+        "glass": "Old-fashioned glass",
+        "ingredients":
+        [
+            "45 ml Scotch Whiskey",
+            "45 ml Amaretto"
+        ],
+        "method": "Build in ice-filled old-fashioned glass. Garnish with orange twist.",
+    },
+    {
+        "name": "Army & Navy",
+        "glass": "Coupe glass",
+        "ingredients":
+        [
+            "60 ml Gin",
+            "30 ml Lemon Juice",
+            "20 ml Orgeat Syrup",
+            "2 Dashes Bitters"
+        ],
+        "method": "Shake with ice, strain into chilled coupe glass. Garnish with lemon twist.",
     }
 ]
