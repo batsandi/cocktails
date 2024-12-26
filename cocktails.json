@@ -25,6 +25,20 @@
         "color": "#e7de9d"
     },
     {
+        "name": "Paloma",
+        "glass": "Highball glass",
+        "ingredients":
+        [
+            "60 ml Tequila (Blanco)",
+            "60 ml Grapefruit Juice",
+            "60 ml Soda Water",
+            "15 ml Lime Juice",
+            "10 ml Simple Syrup"
+        ],
+        "method": "Build in ice-filled highball glass, stir gently",
+        "color": "#f2f2f2"
+    }
+    {
         "name": "Old Fashioned",
         "glass": "Old-fashioned glass",
         "ingredients":
