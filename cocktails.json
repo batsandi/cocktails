@@ -263,6 +263,19 @@
         "color": "#FFD700"
     },
     {
+        "name": "Boulevardier",
+        "glass": "Old-fashioned glass",
+        "ingredients":
+        [
+            "40 ml Bourbon",
+            "30 ml Sweet Vermouth",
+            "30 ml Campari",
+            "1 Orange Peel"
+        ],
+        "method": "Stir with ice for 30-40 sec, strain into ice-filled old-fashioned glass. Garnish with orange twist.",
+        "color": "#8B4513"
+    },
+    {
         "name": "Tom Collins",
         "glass": "Highball glass",
         "ingredients":
