@@ -13,6 +13,19 @@
         "color": "#d9e76c"
     },
     {
+        "name": "Appletini",
+        "glass": "Martini glass",
+        "ingredients":
+        [
+            "50 ml Vodka",
+            "50 ml Green Apple Juice",
+            "10 ml Lemon Juice",
+            "5 ml Maple Syrup"
+        ],
+        "method": "Shake with ice, strain into chilled martini glass.",
+        "color": "#7FFF00"
+    },
+    {
         "name": "Daiquiri",
         "glass": "Coupe glass",
         "ingredients":
@@ -36,6 +49,56 @@
             "10 ml Simple Syrup"
         ],
         "method": "Build in ice-filled highball glass, stir gently",
+        "color": "#f2f2f2"
+    },
+    {
+        "name": "Caprioska",
+        "glass": "Old-fashioned glass",
+        "ingredients":
+        [
+            "60 ml Vodka",
+            "1/2 - 1 Lime",
+            "1 Teaspoon Sugar"
+        ],
+        "method": "Muddle lime wedges and sugar, add crushed ice, add vodka, stir",
+        "color": "#f2f2f2"
+    },
+    {
+        "name": "White Russian",
+        "glass": "Old-fashioned glass",
+        "ingredients":
+        [
+            "50 ml Vodka",
+            "30 ml Coffee Liqueur",
+            "25 ml Milk (or Cream)"
+        ],
+        "method": "Build in ice-filled old-fashioned glass, stir gently",
+        "color": "#f2f2f2"
+    },
+    {
+        "name": "Seabreeze",
+        "glass": "Highball glass",
+        "ingredients":
+        [
+            "60 ml Vodka",
+            "90 ml Cranberry Juice",
+            "60 ml Grapefruit Juice"
+        ],
+        "method": "Build in ice-filled highball glass, stir gently, garnish with grapefruit",
+        "color": "#f2f2f2"
+    },
+    {
+        "name": "Sunset Vibes",
+        "glass": "Highball glass",
+        "ingredients":
+        [
+            "45 ml Vodka",
+            "45 ml Grapefruit Juice",
+            "30 ml Aperol",
+            "45 ml Tonic Water",
+            "5 ml Grenadine"
+        ],
+        "method": "Build in ice-filled highball glass with ice spear, stir gently, add Tonic water, pour grenadine with spoon over side",
         "color": "#f2f2f2"
     },
     {
