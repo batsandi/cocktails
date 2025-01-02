@@ -363,7 +363,20 @@
         ],
         "method": "Shake with ice, strain into ice-filled old-fashioned glass.",
         "color": "#8B4513"
-    }
+    },
+    {
+        "name": "Maple Old Fashioned",
+        "glass": "Old-fashioned glass",
+        "ingredients":
+        [
+            "60 ml Bourbon (or Aged Rum)",
+            "10 ml Maple syrup",
+            "2 Dashes Bitters",
+            "1 Orange Peel"
+        ],
+        "method": "Stir on ice for 30 sec. Pour into ice-filled Old Fashioned glass, stir, flame orange zest, wipe on rim and drop in.",
+        "color": "#8B4513"
+    },
     {
         "name": "12 Mile Limit",
         "glass": "Coupe glass",
