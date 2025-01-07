@@ -348,7 +348,7 @@
             "30 ml Gin",
             "30 ml Campari",
             "20 ml Lemon Juice",
-            "15 ml Simple Syrup",
+            "15 ml Simple Syrup"
         ],
         "method": "Shake with ice, strain into ice-filled old-fashioned glass.",
         "color": "#8B4513"
@@ -536,7 +536,7 @@
         ],
         "method": "Shake with ice, strain into ice-filled old-fashioned glass. Garnish with pineapple leaf.",
         "color": "#FF6347"
-    }
+    },
     {
         "name": "Manhattan",
         "glass": "Coupe glass",
