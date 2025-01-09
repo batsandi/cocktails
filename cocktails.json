@@ -340,6 +340,20 @@
         "color": "#FFD700"
     },
     {
+        "name": "Queen's Park Super Cocktail",
+        "glass": "Coupe glass",
+        "ingredients":
+        [
+            "45 ml Trinidad Aged Rum",
+            "15 ml Lime Juice",
+            "15 ml Grenadine",
+            "15 Sweet Vermouth",
+            "2 Dashes Angostura Bitters",
+        ],
+        "method": "Shake with ice, strain into chilled coupe glass. Garnish with lime twist.",
+        "color": "#FFD700"
+    },
+    {
         "name": "Enzoni",
         "glass": "Old-fashioned glass",
         "ingredients":
