@@ -340,6 +340,42 @@
         "color": "#FFD700"
     },
     {
+        "name": "Rum Old Fashioned",
+        "glass": "Old-fashioned glass",
+        "ingredients":
+        [
+            "60 ml Aged Rum",
+            "1 Sugar Cube",
+            "2 Dashes Orange Bitters (or Chocolate Bitters)",
+            "1 Orange Peel"
+        ],
+        "method": "Muddle sugar cube with bitters. Add rest and ice, stir, flame orange zest, wipe on rim and drop in.",
+    },
+    {
+        "name": "El Presidente",
+        "glass": "Coupe glass",
+        "ingredients":
+        [
+            "45 ml White Rum",
+            "45 ml Dry Vermouth",
+            "10  ml Orange Curacao",
+            "1 Dash Grenadine"
+        ],
+        "method": "Shake with ice, strain into chilled coupe glass. Garnish with orange twist.",
+    },
+    {
+        "name": "Rum Manhattan",
+        "glass": "Coupe glass",
+        "ingredients":
+        [
+            "60 ml Aged Rum",
+            "30 ml Sweet Vermouth",
+            "2 Dashes Bitters",
+        ],
+        "method": "Stir with ice for 30-40 sec, strain into chilled coupe glass. Garnish with orange peel and cherry.",
+        "color": "#8B4513"
+    },
+    {
         "name": "Queen's Park Super Cocktail",
         "glass": "Coupe glass",
         "ingredients":
