@@ -17,10 +17,10 @@
         "glass": "Martini glass",
         "ingredients":
         [
-            "50 ml Vodka",
-            "50 ml Green Apple Juice",
+            "60 ml Vodka",
+            "45 ml Green Apple Juice",
             "10 ml Lemon Juice",
-            "5 ml Maple Syrup"
+            "10 ml Maple Syrup"
         ],
         "method": "Shake with ice, strain into chilled martini glass.",
         "color": "#7FFF00"
@@ -73,6 +73,37 @@
             "25 ml Milk (or Cream)"
         ],
         "method": "Build in ice-filled old-fashioned glass, stir gently",
+        "color": "#f2f2f2"
+    },
+    {
+        "name": "Pineapple Martini",
+        "glass": "Martini glass",
+        "ingredients":
+        [
+            "45 ml Vodka",
+            "30 ml Pineapple Juice",
+            "15 ml Lime Juice",
+            "10 ml Simple Syrup"
+        ],
+        "method": "Shake with ice, strain into chilled martini glass",
+        "color": "#f2f2f2"
+    },
+    {
+        "name": "Grapefruit Cooler",
+        "glass": "Coupe glass",
+        "ingredients":
+        [
+            "60 ml Vodka",
+            "1 Grapefruit peel",
+            "1 Spring of mint",
+            "30 ml Grapefruit Juice",
+            "20 ml Lemon Juice",
+            "15 ml Simple Syrup (Or Grapefruit syrup",
+            "10ml Honey Syrup",
+            "1 Dash Angostura Bitters",
+            "1 Dash Peychaud's Bitters"
+        ],
+        "method": "Add ALL, shake with ice, double-strain into chilled coupe glass",
         "color": "#f2f2f2"
     },
     {
@@ -574,13 +605,27 @@
         "color": "#FFD700"
     },
     {
+        "name": "Salty Bird",
+        "glass": "Highball glass",
+        "ingredients":
+        [
+            "45 ml White Rum",
+            "20 ml Campari",
+            "45 ml Pineapple Juice (unsweetened)",
+            "15 ml Lime Juice",
+            "15 ml Simple Syrup",
+            "1 Pinch of Salt"
+        ],
+        "method": "Shake with ice, strain into ice-filled Highball glass. Garnish with pineapple slice and leafs and straw.",
+    },
+    {
         "name": "Jungle Bird",
         "glass": "Old-fashioned glass",
         "ingredients":
         [
-            "45 ml Dark Rum",
+            "50 ml Dark Rum",
             "20 ml Campari",
-            "120 ml Pineapple Juice (unsweetened)",
+            "60 ml Pineapple Juice (unsweetened)",
             "15 ml Lime Juice",
             "15 ml Simple Syrup"
         ],
