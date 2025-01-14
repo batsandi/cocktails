@@ -292,6 +292,31 @@
         "color": "#000000"
     },
     {
+        "name": "Dark and Stormy",
+        "glass": "Highball glass",
+        "ingredients":
+        [
+            "60 ml Dark Rum",
+            "90 ml Ginger Beer",
+            "15 ml Lime Juice",
+            "2 Dashes Bitters"
+        ], 
+        "method": "Build in ice-filled highball glass, stir gently, garnish with lime wedge",
+        "color": "#8B4513"
+    },
+    {
+        "name": "Moscow Mule",
+        "glass": "Copper mug",
+        "ingredients":
+        [
+            "60 ml Vodka",
+            "15 ml Lime Juice",
+            "90 ml Ginger Beer"
+        ],
+        "method": "Build in ice-filled copper mug, stir gently, garnish with lime wheel",
+        "color": "#B0E57C"
+    },
+    {
         "name": "Mai Tai",
         "glass": "Old-fashioned glass",
         "ingredients":
@@ -343,6 +368,19 @@
         ],
         "method": "Shake with ice, strain into chilled coupe glass. Garnish with lemon twist.",
         "color": "#FFD700"
+    },
+    {
+        "name": "Chet Baker",
+        "glass": "Old-fashioned glass",
+        "ingredients":
+        [
+            "60 ml Aged Rum",
+            "5 ml Honey Syrup",
+            "5ml Sweet Vermouth",
+            "2 Dashes Angostura Bitters"
+        ],
+        "method": "Stir with ice for 30 sec, strain into Ice-filled Old-Fashioned glass. Garnish with orange twist.",
+        "color": "#8B4513"
     },
     {
         "name": "White Lady",
