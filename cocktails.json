@@ -279,19 +279,6 @@
         "color": "#FFD700"
     },
     {
-        "name": "Espresso Martini",
-        "glass": "Martini glass",
-        "ingredients":
-        [
-            "60 ml Vodka",
-            "15 ml Coffee Liqueur",
-            "30 ml Espresso",
-            "10 ml Simple Syrup"
-        ],
-        "method": "Shake with ice, strain into chilled martini glass. Garnish with coffee beans.",
-        "color": "#000000"
-    },
-    {
         "name": "Dark and Stormy",
         "glass": "Highball glass",
         "ingredients":
