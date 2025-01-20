@@ -279,6 +279,19 @@
         "color": "#FFD700"
     },
     {
+        "name": "Espresso & Cream Martini",
+        "glass": "Coupe glass",
+        "ingredients":
+        [
+            "30 ml Vodka",
+            "20 ml Coffee & Cream Liqueur",
+            "40 ml Espresso",
+            "15 ml White Rum"
+        ],
+        "method": "Shake with ice, strain into chilled coupe glass. Garnish with coffee beans.",
+        "color": "#000000"
+    },
+    {
         "name": "Dark and Stormy",
         "glass": "Highball glass",
         "ingredients":
