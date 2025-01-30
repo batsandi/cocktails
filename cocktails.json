@@ -292,6 +292,65 @@
         "color": "#000000"
     },
     {
+        "name": "Cucumber Coupe",
+        "glass": "Coupe glass",
+        "ingredients":
+        [
+            "60 ml Gin",
+            "15 ml Lime Juice",
+            "15 ml Simple Syrup",
+            "45 ml Prosecco",
+            "3 Slices of Cucumber",
+            "1 Dash Bitters"
+        ],
+        "method": "Muddle cucumber, add rest, shake (except Prosecco) with ice, add prosecco, double-strain into chilled coupe glass. Garnish with mint spring.",
+        "color": "#B0E57C"
+    },
+    {
+        "name": "Timberpoint Cooler",
+        "glass": "Highball glass",
+        "ingredients":
+        [
+            "60 ml Gin",
+            "30 ml Aperol",
+            "25 ml Lemon Juice",
+            "15 ml Simple Syrup",
+            "Top with Soda Water",
+            "1 Cucumber peel"
+        ],
+        "method": "Shake (except soda), strain into ice-filled highball glass. Top with soda. Garnish with cucumber peel.",
+        "color": "#B0E57C"
+    },
+    {
+        "name": "Aperol Negroni",
+        "glass": "Old-fashioned glass",
+        "ingredients":
+        [
+            "30 ml Gin",
+            "30 ml Aperol",
+            "30 ml Sweet Vermouth",
+            "1 Dash Orange Bitters",
+            "1 Orange Peel"
+        ],
+        "method": "Stir with ice for 30-40 sec, strain into ice-filled old-fashioned glass. Garnish with orange twist.",
+        "color": "#FF4500"
+    },
+    {
+        "name": "Intro to Aperol",
+        "glass": "Coupe glass",
+        "ingredients":
+        [
+            "60 ml Aperol",
+            "30 ml Gin",
+            "22 ml Lime Juice",
+            "10 ml Simple Syrup",
+            "1 Egg White",
+            "2 Dashes Angostura Bitters",
+        ],
+        "method": "Dry shake, shake with ice, strain into chilled coupe glass. Garnish with lime twist.",
+        "color": "#FF4500"
+    },
+    {
         "name": "Dark and Stormy",
         "glass": "Highball glass",
         "ingredients":
