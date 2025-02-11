@@ -714,6 +714,19 @@
         "color": "#FF4500"
     },
     {
+            "name": "Kiwi Vodka Sour",
+            "glass": "Old-fashioned glass",
+            "ingredients":
+            [
+                "60 ml Vodka",
+                "25 ml Lemon Juice",
+                "10 ml Simple Syrup",
+                "1 Kiwi"
+            ],
+            "method": "Muddle kiwi with syrup, shake with ice, strain into ice-filled old-fashioned glass. Garnish with kiwi slice.",
+            "color": "#B0E57C"
+    },
+    {
         "name": "Gin Basil Smash",
         "glass": "Old-fashioned glass",
         "ingredients":
