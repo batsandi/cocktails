@@ -43,12 +43,12 @@
         "ingredients":
         [
             "60 ml Tequila (Blanco)",
-            "60 ml Grapefruit Juice",
-            "60 ml Soda Water",
+            "25 ml Grapefruit Juice",
+            "10 ml Agave Syrup",
             "15 ml Lime Juice",
-            "10 ml Simple Syrup"
+            "50 ml Grapefruit soda"
         ],
-        "method": "Build in ice-filled highball glass, stir gently",
+        "method": "Short Shake with ice, serve in ice-filled highball glass, add grapefruit soda.",
         "color": "#f2f2f2"
     },
     {
@@ -159,6 +159,67 @@
         "color": "#8B4513"
     },
     {
+        "name": "Kentucky Maid",
+        "glass": "Old-fashioned glass",
+        "ingredients": [
+            "60 ml Bourbon Whiskey",
+            "30 ml Lime Juice",
+            "20 ml Simple Syrup",
+            "3 Mint Leaves",
+            "2 Cucumber Slices"
+        ],
+        "method": "Muddle mint leaves and cucumber slices with simple syrup. Add bourbon and lime juice, shake with ice, strain into ice-filled old-fashioned glass. Garnish with mint sprig.",
+        "color": "#8B4513"
+    },
+    {
+        "name": "Mint Julep",
+        "glass": "Old-fashioned cup",
+        "ingredients": [
+            "75 ml Bourbon Whiskey",
+            "15 ml Simple Syrup",
+            "8 Mint Leaves"
+        ],
+        "method": "Muddle mint leaves with simple syrup right into the glass. Add bourbon, fill with crushed ice, stir until cup is frosted. Garnish with mint sprig. Serve with straw",
+        "color": "#8B4513"
+    },
+    {
+        "name": "Brown Derby",
+        "glass": "Coupe glass",
+        "ingredients": [
+            "60 ml Bourbon Whiskey",
+            "30 ml Grapefruit Juice",
+            "25 ml Honey Syrup"
+        ],
+        "method": "Shake with ice, strain into chilled coupe glass. Garnish with grapefruit twist.",
+        "color": "#FFD700"
+    },
+    {
+        "name": "Whiskey Smash",
+        "glass": "Old-fashioned glass",
+        "ingredients": [
+            "3-4 mint leaves",
+            "Half a lemon (quartered)",
+            "60 ml Bourbon Whiskey",
+            "22.5 ml Simple Syrup"
+        ],
+        "method": "Muddle mint leaves and lemon quarters with simple syrup. Add bourbon, shake with ice, strain into ice-filled old-fashioned glass. Garnish with mint sprig.",
+        "color": "#8B4513"
+    },
+    {
+        "name": "Divorce Papers",
+        "glass": "Coupe glass",
+        "ingredients":
+        [
+            "15 ml Passion fruit puree",
+            "45 ml Gin",
+            "15 ml Aperol",
+            "15 ml Honey Syrup",
+            "15 ml Lemon Juice"
+        ],
+        "method": "Shake with ice, strain coupe glass.",
+        "color": "#f2f2f2"
+    },
+    {
         "name": "Martini",
         "glass": "Martini glass",
         "ingredients":
@@ -170,6 +231,19 @@
         ],
         "method": "Stir with ice for 30-40 sec, strain into martini glass. Garnish with 3 olives",
         "color": "#000000"
+    },
+    {
+        "name": "Dead Man's Handle",
+        "glass": "Old-fashioned glass",
+        "ingredients":
+        [
+            "45 ml Tequila",
+            "25 ml Aperol",
+            "15 ml Orgeat",
+            "15 mil Lime Juice"
+        ],
+        "method": "Shake with ice, strain into (Crushed) ice-filled old-fashioned glass. Garnish Targine, or chili flakes. Use straw.",
+        "color": "#f2f2f2"
     },
     {
         "name": "Perfect Martini",
@@ -256,7 +330,7 @@
         "glass": "Coupe glass",
         "ingredients":
         [
-            "60 ml Vodka",
+            "60 ml Vodka (Absolut citron)",
             "30 ml Cointreau",
             "30 ml Lime Juice",
             "30 ml Cranberry Juice"
@@ -674,6 +748,100 @@
         "color": "#B0E57C"
     },
     {
+        "name": "Naked and Famous",
+        "glass": "Coupe glass",
+        "ingredients":
+        [
+            "30 ml Mezcal",
+            "30 ml Yellow Chartreuse",
+            "30 ml Aperol",
+            "30 ml Lime Juice"
+        ],
+        "method": "Shake with ice, strain into chilled coupe glass.",
+        "color": "#FF4500"
+    },
+    {
+            "name": "Kiwi Vodka Sour",
+            "glass": "Old-fashioned glass",
+            "ingredients":
+            [
+                "60 ml Vodka",
+                "25 ml Lemon Juice",
+                "10 ml Simple Syrup",
+                "1 Kiwi"
+            ],
+            "method": "Muddle kiwi with syrup, shake with ice, strain into ice-filled old-fashioned glass. Garnish with kiwi slice.",
+            "color": "#B0E57C"
+    },
+    {
+        "name": "Between the Sheets",
+        "glass": "Coupe glass",
+        "ingredients": [
+            "22.5 ml Cognac",
+            "22.5 ml Lightly Aged Rum",
+            "30 ml Dry Curacao",
+            "15 ml Lemon Juice"
+        ],
+        "method": "Shake with ice, strain into chilled coupe glass.",
+        "color": "#FFD700"
+    },
+    {
+        "name": "Very Sexy Martini",
+        "glass": "Martini glass",
+        "ingredients": [
+            "45 ml Citron Vodka",
+            "30 ml Lime Juice",
+            "30 ml Simple Syrup",
+            "45 ml Rose Sparkling Wine",
+            "3 Raspberries, muddled",
+            "5 Mint Leaves, muddled"
+        ],
+        "method": "Muddle raspberries and mint leaves, add rest, shake with ice, strain into chilled martini glass. Top with rose sparkling wine.",
+        "color": "#FF69B4"
+    },
+    {
+        "name:": "Long Island Iced Tea",
+        "glass": "Highball glass",
+        "ingredients": [
+            "15 ml Vodka",
+            "15 ml Gin",
+            "15 ml White Rum",
+            "15 ml Tequila (Blanco)",
+            "15 ml Triple Sec",
+            "25 ml Lemon Juice",
+            "15 ml Simple Syrup",
+            "Top with Cola (Until Tea Colored)"
+        ],
+        "methoed": "Build in ice-filled highball glass, stir gently.",
+        "color": "#f2f2f2"
+    },
+    {
+        "name": "Gin Basil Smash",
+        "glass": "Old-fashioned glass",
+        "ingredients":
+        [
+            "60 ml Gin",
+            "25 ml Lemon Juice",
+            "15 ml Simple Syrup",
+            "8-10 Basil Leaves"
+        ],
+        "method": "Shake with ice, double-strain into ice-filled old-fashioned glass. Garnish with basil leaf.",
+        "color": "#B0E57C"
+    },
+    {
+        "name": "Amaretto Sour",
+        "glass": "Old-fashioned glass",
+        "ingredients":
+        [
+            "60 ml Amaretto",
+            "30 ml Lemon Juice",
+            "1 Egg White",
+            "2 Dash Angostura Bitters"
+        ],
+        "method": "Shake with ice, strain into ice-filled old-fashioned glass. Garnish with cherry.",
+        "color": "#8B4513"
+    },
+    {
         "name": "Sidecar",
         "glass": "Coupe glass",
         "ingredients":
@@ -728,13 +896,27 @@
         "method": "Shake with ice, strain into ice-filled Highball glass. Garnish with pineapple slice and leafs and straw."
     },
     {
+        "name": "Vieux Carre",
+        "glass": "Old-fashioned glass",
+        "ingredients":
+        [
+            "30 ml Rye Whiskey",
+            "30 ml Cognac",
+            "30 ml Sweet Vermouth",
+            "15 ml Benedictine",
+            "3 Dashes Bitters"
+        ],
+        "method": "Stir with ice for 30-40 sec, strain into ice-filled old-fashioned glass. Garnish with lemon twist.",
+        "color": "#8B4513"
+    },
+    {
         "name": "Jungle Bird",
         "glass": "Old-fashioned glass",
         "ingredients":
         [
             "50 ml Dark Rum",
             "20 ml Campari",
-            "60 ml Pineapple Juice (unsweetened)",
+            "50 ml Pineapple Juice (unsweetened)",
             "15 ml Lime Juice",
             "15 ml Simple Syrup"
         ],
