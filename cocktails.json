@@ -145,6 +145,19 @@
         "color": "#f2f2f2"
     },
     {
+        "name": "Pink Lady",
+        "glass": "Coupe glass",	
+        "ingredients":
+        [
+            "60 ml Gin (or 45 + 15 Applejack",
+            "30 ml Lemon Juice",
+            "20 ml Grenadine",
+            "1 Egg White"
+        ],
+        "method": "Dry shake, shake with ice, strain into chilled coupe glass, Garnish with Lemon twist",
+        "color": "#f2f2f2"
+    },
+    {
         "name": "Old Fashioned",
         "glass": "Old-fashioned glass",
         "ingredients":
