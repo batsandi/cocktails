@@ -516,6 +516,21 @@
         "color": "#8B4513"
     },
     {
+        "name": "Corpse Reviver no. 2",
+        "glass": "Coupe glass",
+        "ingredients":
+        [
+            "30 ml Gin",
+            "30 ml Cointreau",
+            "30 ml Lillet Blanc",
+            "30 ml Lemon Juice",
+            "1 Dash Absinthe"
+        ],
+        "method": "Lace glass with Absinthe. Shake with ice, strain into chilled coupe glass. Garnish with lemon twist.",
+        "color": "#FFD700"
+
+    }
+    {
         "name": "Army & Navy",
         "glass": "Coupe glass",
         "ingredients":
