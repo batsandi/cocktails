@@ -270,6 +270,7 @@
         "method": "Shake with ice, strain into (Crushed) ice-filled old-fashioned glass. Garnish Targine, or chili flakes. Use straw.",
         "color": "#f2f2f2"
     },
+
     {
         "name": "Perfect Martini",
         "glass": "Martini glass",
@@ -312,6 +313,21 @@
         "color": "#B0E57C"
     },
     {
+        "name": "Old Cuban",
+        "glass": "Coupe glass",
+        "ingredients":f
+        [
+            "6 Mint Leaves",
+            "2 Dashes Angostura Bitters",
+            "30 ml Simple Syrup",
+            "22.5 ml Lime Juice",
+            "30 ml Aged Rum",
+            "60 ml Sparkling Wine"
+        ],
+        "method": "Shake with ice (except sparkling wine), strain into chilled coupe glass. Top with sparkling wine. Garnish with mint leaf.",
+        "color": "#FFD700"
+    },
+    {
         "name": "Aperol Spritz",
         "glass": "Wine glass",
         "ingredients":
@@ -335,6 +351,21 @@
             "Top with Champagne"
         ],
         "method": "Soak sugar cube in bitters, add cognac, top with champagne. Garnish with lemon twist.",
+        "color": "#FFD700"
+    },
+    {
+        "name": "Champagne Cocktail No.3",
+        "glass": "Champagne glass",
+        "ingredients":
+        [
+            "1 Spiral Lime Peel",
+            "1 Splash Pineapple Juice",
+            "1 Sugar Cube",
+            "4 Dashes Orange Bitters",
+            "Top with Champagne",
+            "5 ml Cointreau"
+        ],
+        "method": "Fill champagne glass with ice. Add spiral lime peel and splash of pineapple juice. Add sugar cube saturated with 4 dashes orange bitters. Fill with champagne and float cointreau.",
         "color": "#FFD700"
     },
     {
